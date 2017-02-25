@@ -3,10 +3,12 @@ package com.currencyconverter.services;
 import android.content.Context;
 import android.util.Log;
 
+import com.currencyconverter.R;
 import com.currencyconverter.common.Constants;
 import com.currencyconverter.database.DBHelper;
 import com.currencyconverter.models.FixerResponse;
 
+import java.io.IOException;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -51,7 +53,11 @@ public class CurrencyListService {
                  @Override
                  public void onFailure(Call<FixerResponse> call, Throwable t) {
                      Log.e(TAG, t.toString());
-                     callback.onFailure(t.toString());
+                     if(t instanceof IOException){
+                         callback.onFailure(context.getResources().getString(R.string.no_internet_connection_msg));
+                     } else {
+                         callback.onFailure(t.toString());
+                     }
                  }
              }
 

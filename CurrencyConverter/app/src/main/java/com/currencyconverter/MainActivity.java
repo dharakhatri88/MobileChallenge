@@ -117,4 +117,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
         dialog.show();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mainActivityActionListener.unBindView();
+    }
 }

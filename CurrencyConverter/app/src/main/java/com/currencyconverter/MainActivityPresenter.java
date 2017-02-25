@@ -41,6 +41,11 @@ public class MainActivityPresenter implements MainActivityContract.MainActivityA
         }
     }
 
+    @Override
+    public void unBindView() {
+        myView = null;
+    }
+
     private void getRatesFromServer(){
         new CurrencyListService(mContext).runAsync(new RetrofitCallback<FixerResponse>() {
             @Override

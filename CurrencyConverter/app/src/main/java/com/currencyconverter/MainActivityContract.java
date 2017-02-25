@@ -17,6 +17,7 @@ public class MainActivityContract {
 
     interface MainActivityActionListener {
         void bindView(MainActivityView view, Context context);
+        void unBindView();
         void onEditAmountTextChanged(String amount);
         void onSpinnerCurrencySelection(String selectedCurrency);
     }
