@@ -1,4 +1,4 @@
-package com.currencyconverter.currencyconverter;
+package com.currencyconverter;
 
 import org.junit.Test;
 
